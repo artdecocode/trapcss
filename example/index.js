@@ -1,7 +1,7 @@
-import myNewPackage from '../src'
+import trapcss from '../src'
 
 (async () => {
-  const res = await myNewPackage({
+  const res = await trapcss({
     text: 'example',
   })
   console.log(res)

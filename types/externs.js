@@ -5,26 +5,26 @@
 
 /* typal types/index.xml externs */
 /** @const */
-var _myNewPackage = {}
+var _trapcss = {}
 /**
  * Options for the program.
  * @record
  */
-_myNewPackage.Config
+_trapcss.Config
 /**
  * A boolean option. Default `true`.
  * @type {boolean|undefined}
  */
-_myNewPackage.Config.prototype.shouldRun
+_trapcss.Config.prototype.shouldRun
 /**
  * A text to return.
  * @type {string|undefined}
  */
-_myNewPackage.Config.prototype.text
+_trapcss.Config.prototype.text
 
 /* typal types/api.xml externs */
 /**
- * {{ description }}
- * @typedef {function(!_myNewPackage.Config): !Promise<string>}
+ * Removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.
+ * @typedef {function(!_trapcss.Config): !Promise<string>}
  */
-_myNewPackage.myNewPackage
+_trapcss.trapcss

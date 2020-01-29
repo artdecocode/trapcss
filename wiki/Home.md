@@ -1,1 +1,1 @@
-{{ description }}
+Removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.

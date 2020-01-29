@@ -1,6 +1,6 @@
-<types namespace="_myNewPackage">
-  <method name="myNewPackage" async return="string">
-    <arg type="!_myNewPackage.Config" name="config">The config.</arg>
-    {{ description }}
+<types namespace="_trapcss">
+  <method name="trapcss" async return="string">
+    <arg type="!_trapcss.Config" name="config">The config.</arg>
+    Removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.
   </method>
 </types>

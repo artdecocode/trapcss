@@ -1,12 +1,12 @@
-const { _myNewPackage } = require('./mnp')
+const { _trapcss } = require('./trapcss')
 
 /**
- * @methodType {_myNewPackage.myNewPackage}
+ * @methodType {_trapcss.trapcss}
  */
-function myNewPackage(config) {
-  return _myNewPackage(config)
+function trapcss(config) {
+  return _trapcss(config)
 }
 
-module.exports = myNewPackage
+module.exports = trapcss
 
 /* typal types/index.xml namespace */

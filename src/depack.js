@@ -1,6 +1,6 @@
 import '../types/externs'
-import myNewPackage from './'
+import trapcss from './'
 
 module.exports = {
-  '_myNewPackage': myNewPackage,
+  '_trapcss': trapcss,
 }

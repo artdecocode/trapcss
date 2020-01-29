@@ -2,10 +2,10 @@ export {}
 
 /* typal types/api.xml namespace */
 /**
- * @typedef {_myNewPackage.myNewPackage} myNewPackage {{ description }}
- * @typedef {(config: !_myNewPackage.Config) => string} _myNewPackage.myNewPackage {{ description }}
+ * @typedef {_trapcss.trapcss} trapcss Removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.
+ * @typedef {(config: !_trapcss.Config) => string} _trapcss.trapcss Removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.
  */
 
 /**
- * @typedef {import('..').Config} _myNewPackage.Config
+ * @typedef {import('..').Config} _trapcss.Config
  */
