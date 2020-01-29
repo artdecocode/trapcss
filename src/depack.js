@@ -1,6 +1,6 @@
 import '../types/externs'
 import trapcss from './'
 
-module.exports = {
+export default {
   '_trapcss': trapcss,
 }
