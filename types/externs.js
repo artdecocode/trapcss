@@ -12,19 +12,49 @@ var _trapcss = {}
  */
 _trapcss.Config
 /**
- * A boolean option. Default `true`.
+ * The input HTML.
+ * @type {string}
+ */
+_trapcss.Config.prototype.html
+/**
+ * The CSS to drop selectors from.
+ * @type {string}
+ */
+_trapcss.Config.prototype.css
+/**
+ * Whether to keep the `@alternate` comment for
+ * Closure Stylesheets. Default `false`.
  * @type {boolean|undefined}
  */
-_trapcss.Config.prototype.shouldRun
+_trapcss.Config.prototype.keepAlternate
 /**
- * A text to return.
- * @type {string|undefined}
+ * Whether _TrapCSS_ should remove this selector.
+ * The `shouldDrop` hook is called for every CSS selector
+ * that could not be matched in the html. Return `false`
+ * to retain the selector or `true` to drop it.
+ * @type {(function(string): boolean)|undefined}
  */
-_trapcss.Config.prototype.text
+_trapcss.Config.prototype.shouldDrop = function(sel) {}
+/**
+ * Return Type.
+ * @record
+ */
+_trapcss.Return
+/**
+ * The dropped CSS.
+ * @type {string}
+ */
+_trapcss.Return.prototype.css
+/**
+ * The used selectors.
+ * @type {!Set<string>}
+ */
+_trapcss.Return.prototype.sels
 
 /* typal types/api.xml externs */
 /**
- * Removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.
- * @typedef {function(!_trapcss.Config): !Promise<string>}
+ * Parses the supplied HTML and CSS and removes
+unused selectors. Also removes empty CSS rules.
+ * @typedef {function(_trapcss.Config): _trapcss.Return}
  */
 _trapcss.trapcss

@@ -39,6 +39,7 @@
     "type": "git",
     "url": "git://github.com/artdecocode/trapcss.git"
   },
+  "typedefs": "typedefs.json",
   "keywords": [
     "web",
     "css",

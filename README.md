@@ -12,8 +12,9 @@ yarn add trapcss
 
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-- [`async trapcss(config: !Config): string`](#async-mynewpackageconfig-config-string)
+- [`trapcss(opts: Config): Return`](#trapcssopts-config-return)
   * [`Config`](#type-config)
+  * [`Return`](#type-return)
 - [CLI](#cli)
 - [Copyright & License](#copyright--license)
 
@@ -33,18 +34,30 @@ import trapcss from 'trapcss'
   <img src="/.documentary/section-breaks/1.svg?sanitize=true">
 </a></p>
 
-## <code>async <ins>trapcss</ins>(</code><sub><br/>&nbsp;&nbsp;`config: !Config,`<br/></sub><code>): <i>string</i></code>
-Removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.
+## <code><ins>trapcss</ins>(</code><sub><br/>&nbsp;&nbsp;`opts: Config,`<br/></sub><code>): <i>Return</i></code>
+Parses the supplied HTML and CSS and removes
+unused selectors. Also removes empty CSS rules.
 
- - <kbd><strong>config*</strong></kbd> <em><code><a href="#type-config" title="Options for the program.">!Config</a></code></em>: The config.
+ - <kbd><strong>opts*</strong></kbd> <em><code><a href="#type-config" title="Options for the program.">Config</a></code></em>: The options for _TrapCSS_.
 
 __<a name="type-config">`Config`</a>__: Options for the program.
 
 
-|   Name    |       Type       |    Description    | Default |
-| --------- | ---------------- | ----------------- | ------- |
-| shouldRun | <em>boolean</em> | A boolean option. | `true`  |
-| text      | <em>string</em>  | A text to return. | -       |
+|     Name      |               Type                |                                                                                                     Description                                                                                                      | Default |
+| ------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| __html*__     | <em>string</em>                   | The input HTML.                                                                                                                                                                                                      | -       |
+| __css*__      | <em>string</em>                   | The CSS to drop selectors from.                                                                                                                                                                                      | -       |
+| keepAlternate | <em>boolean</em>                  | Whether to keep the `@alternate` comment for<br/>Closure Stylesheets.                                                                                                                                                | `false` |
+| shouldDrop    | <em>(sel: string) => boolean</em> | Whether _TrapCSS_ should remove this selector.<br/>The `shouldDrop` hook is called for every CSS selector<br/>that could not be matched in the html. Return `false`<br/>to retain the selector or `true` to drop it. | -       |
+
+
+__<a name="type-return">`Return`</a>__: Return Type.
+
+
+|   Name    |            Type             |     Description     |
+| --------- | --------------------------- | ------------------- |
+| __css*__  | <em>string</em>             | The dropped CSS.    |
+| __sels*__ | <em>!Set&lt;string&gt;</em> | The used selectors. |
 
 ```js
 import trapcss from 'trapcss'
@@ -57,8 +70,7 @@ import trapcss from 'trapcss'
 })()
 ```
 ```
-trapcss called with example
-example
+
 ```
 
 <p align="center"><a href="#table-of-contents">
@@ -132,7 +144,7 @@ GNU Affero General Public License v3.0
 <table>
   <tr>
     <td><img src="https://avatars3.githubusercontent.com/u/38815725?v=4&amp;s=100" alt="artdecocode"></td>
-    <td>© <a href="https://www.artd.eco">Art Deco™</a> 2019</td>
+    <td>© <a href="https://www.artd.eco">Art Deco™</a> 2020</td>
   </tr>
 </table>
 

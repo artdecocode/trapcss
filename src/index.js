@@ -19,7 +19,12 @@ function stripNonAssertablePseudos(sel) {
 
 const drop = sel => true
 
+/**
+ * @type {_trapcss.trapcss}
+ */
 function dropcss(opts) {
+  const { html, shouldDrop = drop, css, keepAlternate = false } = opts
+
   let log, START
 
   if (LOGGING) {
@@ -28,13 +33,11 @@ function dropcss(opts) {
   }
 
   // {nodes, tag, class, id}
-  const H = parseHTML(opts.html, !opts.keepText)
+  const H = parseHTML(html)
 
   LOGGING && log.push([+new Date() - START, 'HTML parsed & processed'])
 
-  const shouldDrop = opts.shouldDrop || drop
-
-  let tokens = parseCSS(opts.css)
+  let tokens = parseCSS(css, keepAlternate)
 
   LOGGING && log.push([+new Date() - START, 'CSS tokenized'])
 
