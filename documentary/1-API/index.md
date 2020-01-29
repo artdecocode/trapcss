@@ -13,6 +13,8 @@ import trapcss from 'trapcss'
 <typedef>types/index.xml</typedef>
 
 %EXAMPLE: example, ../src => trapcss%
-%FORK example%
+
+%FORK-css example%
+%FORKERR-js example%
 
 %~%
