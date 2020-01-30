@@ -53,15 +53,15 @@
   },
   "homepage": "https://art-deco.github.io/trapcss",
   "devDependencies": {
-    "alamode": "^3.3.0",
+    "alamode": "^3.3.1",
     "argufy": "^1.7.5",
-    "depack": "^1.0.1",
-    "documentary": "^1.35.9",
+    "depack": "^1.1.0",
+    "documentary": "^1.35.10",
     "erte": "^1.2.0",
     "eslint-config-artdeco": "1.0.1",
-    "indicatrix": "^1.4.0",
+    "indicatrix": "^1.4.1",
     "usually": "^1.2.0",
-    "yarn-s": "1.2.1",
+    "yarn-s": "1.2.2",
     "zoroaster": "^4.1.2"
   }
 }

@@ -8,16 +8,16 @@ const T = {
   'is a function'() {
     equal(typeof trapcss, 'function')
   },
-  async 'calls package without error'() {
-    await trapcss()
-  },
-  async 'gets a link to the fixture'({ fixture }) {
-    const text = fixture`text.txt`
-    const res = await trapcss({
-      text,
-    })
-    ok(res, text)
-  },
+  // async 'calls package without error'() {
+  //   await trapcss()
+  // },
+  // async 'gets a link to the fixture'({ fixture }) {
+  //   const text = fixture`text.txt`
+  //   const res = await trapcss({
+  //     text,
+  //   })
+  //   ok(res, text)
+  // },
 }
 
 /**
