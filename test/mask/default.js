@@ -12,7 +12,7 @@ const T = makeTestSuite([
       html: '<div></div>',
       css: prepend + css,
     })
-    return out.replace(prepend, '')
+    return out
   },
 })
 

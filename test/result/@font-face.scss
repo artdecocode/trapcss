@@ -6,14 +6,14 @@ span{color: black;}
 div{font-family: 'Open Sans', Fallback, sans-serif;}
 
 /* expected */
-div{color: red;}@font-face{font-family: 'Open Sans';}
+div{font-family: 'Open Sans', Fallback, sans-serif;}div{color: red;}@font-face{font-family: 'Open Sans';}
 /**/
 
 // retains if used (shorthand)
 div{font: italic small-caps normal 13px Arial, 'Open Sans', Helvetica, sans-serif;}
 
 /* expected */
-div{color: red;}@font-face{font-family: 'Open Sans';}
+div{font: italic small-caps normal 13px Arial, 'Open Sans', Helvetica, sans-serif;}div{color: red;}@font-face{font-family: 'Open Sans';}
 /**/
 
 // drop if unused
