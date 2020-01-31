@@ -1,21 +1,10 @@
 import { join } from 'path'
-import { debuglog } from 'util'
-
-const LOG = debuglog('trapcss')
+import { readFileSync } from 'fs'
 
 /**
  * A testing context for the package.
  */
 export default class Context {
-  async _init() {
-    LOG('init context')
-  }
-  /**
-   * Example method.
-   */
-  example() {
-    return 'OK'
-  }
   /**
    * A tagged template that returns the relative path to the fixture.
    * @param {string} file
@@ -26,27 +15,49 @@ export default class Context {
     const f = file.raw[0]
     return join('test/fixture', f)
   }
-  async _destroy() {
-    LOG('destroy context')
+  /**
+   * Path to bootstrap.
+   */
+  get bootstrap() {
+    return this.fixture`bootstrap.min.css`
+  }
+  /**
+   * Read the file from the fs.
+   * @param {string} path The path to read.
+   */
+  readFile(path) {
+    return readFileSync(path, 'utf8')
   }
   static get BIN() {
     return BIN
   }
+  /**
+   * Wrap the style in a style tag.
+   */
+  static get wrap() {
+    return wrap
+  }
+  // async _destroy() {
+  //   LOG('destroy context')
+  // }
 }
 
-let BIN = 'src/BIN'
+let BIN
 if (process.env.ALAMODE_ENV == 'test-build') {
-  console.log('Testing build bin...')
+  console.log('Testing build bin')
   BIN = 'build/bin/trapcss'
-} else if (process.env.ALAMODE_ENV == 'test-compile') {
-  console.log('Testing compile bin...')
+} if (process.env.ALAMODE_ENV == 'test-compile') {
+  console.log('Testing compile bin')
   BIN = 'compile/bin/trapcss'
+} else {
+  BIN = 'src/bin'
 }
 
-/** @typedef {Object<string, Test & TestSuite4>} TestSuite */
-/** @typedef {Object<string, Test & TestSuite3>} TestSuite4 */
-/** @typedef {Object<string, Test & TestSuite2>} TestSuite3 */
-/** @typedef {Object<string, Test & TestSuite1>} TestSuite2 */
-/** @typedef {Object<string, Test & TestSuite0>} TestSuite1 */
-/** @typedef {Object<string, Test>} TestSuite0 */
-/** @typedef {(c: Context)} Test */
+/**
+ * @param {string} stdout
+ */
+const wrap = (stdout) => {
+  return `<style>
+  ${stdout}
+</style>`
+}

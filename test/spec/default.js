@@ -1,27 +1,21 @@
-import { equal, ok } from '@zoroaster/assert'
+import ServiceContext from 'zoroaster'
 import Context from '../context'
 import trapcss from '../../src'
 
-/** @type {TestSuite} */
+/** @type {Object.<string, (c: Context, z: ServiceContext)>} */
 const T = {
-  context: Context,
-  'is a function'() {
-    equal(typeof trapcss, 'function')
+  context: [Context, ServiceContext],
+  'bench stress test'({ bootstrap, readFile, fixture }, { snapshotExtension }) {
+    snapshotExtension('css')
+    const bt = readFile(bootstrap)
+    const bulma = readFile(fixture`bulma.min.css`)
+    const css = bt + bulma
+    const res = trapcss({
+      css,
+      html: readFile(fixture`surveillance.html`),
+    })
+    return res.css
   },
-  // async 'calls package without error'() {
-  //   await trapcss()
-  // },
-  // async 'gets a link to the fixture'({ fixture }) {
-  //   const text = fixture`text.txt`
-  //   const res = await trapcss({
-  //     text,
-  //   })
-  //   ok(res, text)
-  // },
 }
-
-/**
- * @typedef {import('../context').TestSuite} TestSuite
- */
 
 export default T

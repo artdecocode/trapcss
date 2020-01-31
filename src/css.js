@@ -173,9 +173,12 @@ function tokenize(css) {
   return tokens
 }
 
-function parse(css) {
+export function parse(css, keepAlternate) {
   // strip comments (for now)
-  css = css.replace(COMMENTS, '')
+  css = css.replace(COMMENTS, keepAlternate ? (m) => {
+    if (/^\s*\/\* @alternate \*\/\s*$/.test(m)) return m
+    return ''
+  } : '')
   return tokenize(css)
 }
 
@@ -219,7 +222,6 @@ function generate(tokens, kept) {
   return stripEmptyAts(out)
 }
 
-export { parse }
 export { generate }
 export { SELECTORS }
 export { takeUntilMatchedClosing }
