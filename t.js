@@ -1,0 +1,5 @@
+import trapcss from './'
+
+trapcss({
+
+})

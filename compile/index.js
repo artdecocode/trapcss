@@ -3,12 +3,12 @@ const { _trapcss } = require('./trapcss')
 /**
  * Parses the supplied HTML and CSS and removes
 unused selectors. Also removes empty CSS rules.
- * @param {_trapcss.Config} opts Options for the program.
- * @param {string} opts.html The input HTML.
- * @param {string} opts.css The CSS to drop selectors from.
- * @param {boolean} [opts.keepAlternate=false] Whether to keep the `@alternate` comment for
+ * @param {_trapcss.Config} config Options for the program.
+ * @param {string} config.html The input HTML.
+ * @param {string} config.css The CSS to drop selectors from.
+ * @param {boolean} [config.keepAlternate=false] Whether to keep the `@alternate` comment for
  * Closure Stylesheets. Default `false`.
- * @param {(sel: string) => boolean} [opts.shouldDrop] Whether _TrapCSS_ should remove this selector.
+ * @param {(sel: string) => boolean} [config.shouldDrop] Whether _TrapCSS_ should remove this selector.
  * The `shouldDrop` hook is called for every CSS selector
  * that could not be matched in the html. Return `false`
  * to retain the selector or `true` to drop it.

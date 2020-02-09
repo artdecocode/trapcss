@@ -4,6 +4,13 @@ import { some, matchesAttr } from './find'
 import { postProc } from './postproc'
 import { LOGGING } from './env'
 
+/*!
+ * dropcss by Leon Sorokin
+ * https://github.com/leeoniya/dropcss
+ * Copyright(c) 2020
+ * MIT Licensed
+ */
+
 const ATTRIBUTES = /\[([\w-]+)(?:(.?=)"?([^\]]*?)"?)?\]/i
 
 const pseudoAssertable = /:(?:first|last|nth|only|not)\b/		// |lang

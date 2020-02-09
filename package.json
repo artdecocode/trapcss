@@ -12,7 +12,7 @@
     "dev": "node src/bin",
     "compile": "depack src/bin/trapcss -o compile/bin/trapcss.js -a -c -S --externs types/externs.js",
     "lib": "depack src/depack.js -o compile/trapcss.js -a -c --source_map_include_content",
-    "test-compile": "ALAMODE_ENV=test-compile yarn test",
+    "test-compile": "yarn test -e test-compile",
     "lint": "eslint .",
     "doc": "doc -o README.md -n _trapcss -a -d",
     "wiki": "doc wiki -W wiki.git -n _trapcss -a -d",
@@ -54,15 +54,15 @@
   },
   "homepage": "https://art-deco.github.io/trapcss",
   "devDependencies": {
-    "alamode": "^3.3.1",
+    "alamode": "^3.4.1",
     "argufy": "^1.7.5",
-    "depack": "^1.1.0",
-    "documentary": "^1.35.10",
+    "depack": "^1.1.1",
+    "documentary": "^1.35.13",
     "erte": "^1.2.0",
     "eslint-config-artdeco": "1.0.1",
     "indicatrix": "^1.4.1",
     "usually": "^1.2.0",
-    "yarn-s": "1.2.2",
-    "zoroaster": "^4.1.2"
+    "yarn-s": "1.2.3",
+    "zoroaster": "^4.3.0"
   }
 }
