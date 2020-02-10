@@ -1,13 +1,44 @@
-## runs the binary
-test/fixture/test.txt
+## keeps span
+<html>
+  <body>
+    <span>test</span>
+  </body>
+</html>
 
-/* stdout */
-trapcss called with a test file
-
-a test file
-
+/* css */
+<style>
+  span {
+    color: green;
+  }
+</style>
 /**/
 
-/* stderr */
-File test/fixture/test.txt successfully processed.
+/* stdout */
+<style>
+  span{color: green;}
+</style>
+/**/
+
+## removes div
+<html>
+  <body>
+    <span>test</span>
+  </body>
+</html>
+
+/* css */
+<style>
+  span {
+    color: yellow;
+  }
+  div {
+    color: green;
+  }
+</style>
+/**/
+
+/* stdout */
+<style>
+  span{color: yellow;}
+</style>
 /**/

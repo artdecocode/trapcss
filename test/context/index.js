@@ -42,15 +42,10 @@ export default class Context {
   // }
 }
 
-let BIN
-if (process.env.ALAMODE_ENV == 'test-build') {
-  console.log('Testing build bin')
-  BIN = 'build/bin/trapcss'
-} if (process.env.ALAMODE_ENV == 'test-compile') {
+let BIN = 'src/bin'
+if (process.env.ALAMODE_ENV == 'test-compile') {
   console.log('Testing compile bin')
   BIN = 'compile/bin/trapcss'
-} else {
-  BIN = 'src/bin'
 }
 
 /**

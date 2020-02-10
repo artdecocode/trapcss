@@ -2,18 +2,17 @@ import argufy from 'argufy'
 
 export const argsConfig = {
   'input': {
-    description: 'The path to the input file.',
+    description: 'The HTML files to read.',
     command: true,
+    multiple: true,
+  },
+  'css': {
+    description: 'The CSS file to drop selectors from.',
+    short: 'c',
   },
   'output': {
-    description: 'Where to save the output. By default prints to stdout.',
-    default: '-',
+    description: 'The destination where to save output.\nIf not passed, prints to stdout.',
     short: 'o',
-  },
-  'init': {
-    description: 'Initialise in the current folder.',
-    boolean: true,
-    short: 'i',
   },
   'help': {
     description: 'Print the help information and exit.',
@@ -26,22 +25,24 @@ export const argsConfig = {
     short: 'v',
   },
 }
+
 const args = argufy(argsConfig)
 
 /**
- * The path to the input file.
+ * The HTML files to read.
  */
-export const _input = /** @type {string} */ (args['input'])
+export const _input = /** @type {!Array<string>} */ (args['input'])
 
 /**
- * Where to save the output. By default prints to stdout. Default `-`.
+ * The CSS file to drop selectors from.
  */
-export const _output = /** @type {string} */ (args['output'] || '-')
+export const _css = /** @type {string} */ (args['css'])
 
 /**
- * Initialise in the current folder.
+ * The destination where to save output.
+    If not passed, prints to stdout.
  */
-export const _init = /** @type {boolean} */ (args['init'])
+export const _output = /** @type {string} */ (args['output'])
 
 /**
  * Print the help information and exit.
