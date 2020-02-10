@@ -32,8 +32,10 @@ if (_help) {
     usage: reduceUsage(argsConfig),
   })
   console.log(usage)
+  process.exit(0)
 } else if (_version) {
   console.log(require('../../package.json').version)
+  process.exit(0)
 }
 
 if (!_css) {
