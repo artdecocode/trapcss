@@ -26,7 +26,7 @@ More on this project's backstory & discussions: v0.1.0 alpha: [/r/javascript](ht
 - [Introduction](#introduction)
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-- [`trapcss(opts: Config): Return`](#trapcssopts-config-return)
+- [`trapcss(config: Config): Return`](#trapcssconfig-config-return)
   * [`Config`](#type-config)
   * [`Return`](#type-return)
 - [CLI](#cli)
@@ -48,11 +48,11 @@ import trapcss from 'trapcss'
   <img src="/.documentary/section-breaks/1.svg?sanitize=true">
 </a></p>
 
-## <code><ins>trapcss</ins>(</code><sub><br/>&nbsp;&nbsp;`opts: Config,`<br/></sub><code>): <i>Return</i></code>
+## <code><ins>trapcss</ins>(</code><sub><br/>&nbsp;&nbsp;`config: Config,`<br/></sub><code>): <i>Return</i></code>
 Parses the supplied HTML and CSS and removes
 unused selectors. Also removes empty CSS rules.
 
- - <kbd><strong>opts*</strong></kbd> <em><code><a href="#type-config" title="Options for the program.">Config</a></code></em>: The options for _TrapCSS_.
+ - <kbd><strong>config*</strong></kbd> <em><code><a href="#type-config" title="Options for the program.">Config</a></code></em>: The options for _TrapCSS_.
 
 __<a name="type-config">`Config`</a>__: Options for the program.
 
@@ -147,17 +147,18 @@ The package can also be used from the CLI.
   <tr>
    <td>input</td>
    <td></td>
-   <td>The path to the input file.</td>
+   <td>The HTML files to read.</td>
+  </tr>
+  <tr>
+   <td>--css</td>
+   <td>-c</td>
+   <td>The CSS file to drop selectors from.</td>
   </tr>
   <tr>
    <td>--output</td>
    <td>-o</td>
-   <td>Where to save the output. By default prints to stdout. Default <code>-</code>.</td>
-  </tr>
-  <tr>
-   <td>--init</td>
-   <td>-i</td>
-   <td>Initialise in the current folder.</td>
+   <td>The destination where to save output.
+    If not passed, prints to stdout.</td>
   </tr>
   <tr>
    <td>--help</td>
@@ -171,21 +172,71 @@ The package can also be used from the CLI.
   </tr>
 </table>
 
+For example, having these two files, we can use `trapcss` from the command line:
+
+<table>
+<tr>
+  <th>HTML file</th>
+  <th>CSS file</th>
+</tr>
+<tr>
+  <td>
+
+  ```html
+  <html>
+    <head>
+      <title>TrapCSS ftw</title>
+    </head>
+    <body>
+        <p>Hello World!</p>
+    </body>
+  </html>
+  ```
+  </td>
+  <td>
+
+  ```css
+  html {
+    background: yellow;
+    /* @alternate */
+    background: green;
+  }
+  .card {
+    padding: 8px;
+  }
+  p:hover a:first-child {
+    color: red;
+  }
+  ```
+  </td>
+</tr>
+</table>
+
+```console
+trapcss:~$ trapcss example/cli/index.html -c example/cli/style.css
 ```
-Removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.
 
-  trapcss input [-o output] [-ihv]
+```css
+html{background: yellow;background: green;}
+```
 
-	input        	The path to the input file.
-	--output, -o 	Where to save the output. By default prints to stdout.
-	             	Default: -.
-	--init, -i   	Initialise in the current folder.
+The help can be accessed with the `-h` command:
+
+```
+Remove unused CSS
+
+  trapcss input.html[,n.html,...] -c style.css [-o output] [-hv]
+
+	input        	The HTML files to read.
+	--css, -c    	The CSS file to drop selectors from.
+	--output, -o 	The destination where to save output.
+	             	If not passed, prints to stdout.
 	--help, -h   	Print the help information and exit.
 	--version, -v	Show the version's number and exit.
 
   Example:
 
-    trapcss example.txt -o out.txt
+    trapcss index.html example.html -c style.css -o style-dropped.css
 ```
 
 <p align="center"><a href="#table-of-contents">

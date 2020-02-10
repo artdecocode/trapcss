@@ -1,6 +1,6 @@
 {
   "_trapcss.trapcss": {
-    "link": "https://github.com/artdecocode/trapcss#trapcssopts-config-return",
+    "link": "https://github.com/artdecocode/trapcss#trapcssconfig-config-return",
     "description": "Parses the supplied HTML and CSS and removes\nunused selectors. Also removes empty CSS rules."
   },
   "_trapcss.Config": {
