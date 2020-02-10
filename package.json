@@ -31,9 +31,8 @@
     "src",
     "compile",
     "types/externs.js",
-    "types/index.js",
-    "src/bin/index.js",
-    "typedefs.json"
+    "typedefs.json",
+    "COPYING"
   ],
   "externs": "types/externs.js",
   "repository": {
