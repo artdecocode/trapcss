@@ -54,7 +54,7 @@
   },
   "homepage": "https://art-deco.github.io/trapcss",
   "devDependencies": {
-    "alamode": "^3.4.1",
+    "alamode": "^3.5.0",
     "argufy": "^1.7.5",
     "depack": "^1.1.1",
     "documentary": "^1.35.13",
