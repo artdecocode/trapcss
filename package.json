@@ -58,7 +58,7 @@
     "argufy": "^1.7.5",
     "chrome-remote-interface": "^0.28.1",
     "depack": "^1.1.1",
-    "documentary": "^1.36.1",
+    "documentary": "^1.37.0",
     "erte": "^1.2.0",
     "eslint-config-artdeco": "1.0.1",
     "indicatrix": "^1.4.1",
